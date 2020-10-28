@@ -1,4 +1,4 @@
-# happy-nlw-mobile
+## happy-nlw-mobile
 
 
-## 📱 Mobile version of Happy from NextLevelWeek3 by @rocketseat 🚀🚀🚀
+### 📱 Mobile version of Happy from NextLevelWeek3 by @rocketseat 🚀🚀🚀
