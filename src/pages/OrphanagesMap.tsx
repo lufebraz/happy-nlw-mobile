@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps';
 import { Feather } from '@expo/vector-icons';
 
 import mapMarker from '../images/map-marker.png';
 import { useNavigation } from '@react-navigation/native';
+import { RectButton } from 'react-native-gesture-handler';
 
 
 export default function OrphanagesMap() {
@@ -12,8 +13,11 @@ export default function OrphanagesMap() {
     const navigation = useNavigation();
 
     function handleNavigateToOrphanageDetails(){
-        navigation.navigate('OrphanageDetails')
+        navigation.navigate('OrphanageDetails');
     }
+    function handleNavigateToCreateOrphanage(){
+      navigation.navigate('SelectMapPosition');
+  }
 
     
     
@@ -34,7 +38,7 @@ export default function OrphanagesMap() {
             icon={mapMarker}
             calloutAnchor={{
               x: 2.7,
-              y: 0.9,
+              y: 0.78,
             }}
             coordinate={{   
               latitude: -15.8008972,
@@ -57,9 +61,9 @@ export default function OrphanagesMap() {
             2 orfanatos encontrados
             </Text>
   
-          <TouchableOpacity style={styles.createOrphanageButton} onPress={() => { }}>
+          <RectButton style={styles.createOrphanageButton} onPress={handleNavigateToCreateOrphanage}>
             <Feather name="plus" size={20} color='#FFF' />
-          </TouchableOpacity>
+          </RectButton>
         </View>
   
       </View>
@@ -109,11 +113,11 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-  
-      shadowColor: '#000',
-      shadowRadius: 0.5,
-      shadowOpacity: 0.3,
-      shadowOffset: { width: 2, height: 4 },
+      elevation: 3,
+      // shadowColor: '#000',
+      // shadowRadius: 0.5,
+      // shadowOpacity: 0.3,
+      // shadowOffset: { width: 2, height: 4 },
     },
   
     footerText: {
